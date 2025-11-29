@@ -1,22 +1,97 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>To do List</title>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>To Do List - nugrahayuda</title>
 
+    <!-- Link CSS -->
+    <link rel="stylesheet" href="/css/styles.css" />
 
-    <link rel="stylesheet" href="/css/style.css">
-</head>
-<body>
-    <!-- Header Section -->
-    <header></header>
+    <!-- Tailwind CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
 
-    <!-- Main Content -->
-    <main></main>
+  <body class="bg-[#eefafb] min-h-screen flex justify-center py-12">
+    <div class="w-full max-w-3xl px-4">
+      <!-- Header Section -->
+      <h1
+        class="bg-[#33d99b] p-6 font-bold text-center mb-6 rounded-lg shadow-md text-3xl"
+      >
+        To Do List - nugrahayuda
+      </h1>
 
-    <!-- Footer Section -->
-    <footer></footer>
+      <div class="bg-[#68cef3] rounded-lg shadow-md p-6 mb-8">
+        <div class="flex flex-col sm:flex-row gap-4">
+          <input
+            type="text"
+            id="taskInput"
+            placeholder="Tambahkan tugas..."
+            class="flex-1 px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-pink-500"
+          />
+          <input
+            type="date"
+            id="dateInput"
+            class="px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-pink-500 sm:w-40"
+          />
+          <button
+            onclick="addTask()"
+            class="bg-[#33d99b] hover:bg-pink-600 text-white px-8 py-3 rounded-lg font-semibold text-xl transition"
+          >
+            +
+          </button>
+        </div>
+      </div>
+
+      <!-- Main Content -->
+      <div class="bg-white rounded-lg shadow-md p-6">
+        <div
+          class="flex flex-col sm:flex-row justify-between items-center gap-4 mb-6"
+        >
+          <div class="flex items-center gap-4">
+            <select
+              id="filterSelect"
+              onchange="filterTasks()"
+              class="px-4 py-2 border-2 border-[#33d99b] rounded-lg focus:outline-none focus:ring-2 focus:ring-[#33d99b]"
+            >
+              <option value="all">Semua Tugas</option>
+              <option value="pending">Belum Selesai</option>
+              <option value="completed">Selesai</option>
+            </select>
+            <h2 class="text-xl font-semibold">Daftar Tugas Kamu</h2>
+          </div>
+
+          <button
+            onclick="deleteAll()"
+            class="bg-red-500 hover:bg-red-600 text-white px-6 py-2 rounded-lg font-semibold transition"
+          >
+            HAPUS SEMUA
+          </button>
+        </div>
+
+        <!-- Table Header -->
+        <div
+          class="grid grid-cols-12 gap-4 pb-4 border-b-2 border-gray-200 font-semibold text-gray-700"
+        >
+          <div class="col-span-5">TUGAS</div>
+          <div class="col-span-3 ml-2">TENGGAT</div>
+          <div class="col-span-2 ml-2.5">STATUS</div>
+          <div class="col-span-2 ml-5">AKSI</div>
+        </div>
+
+        <!-- Tasks List -->
+        <div id="tasksList" class="mt-4">
+          <p class="text-center text-gray-500 py-8">Tidak ada tugas</p>
+        </div>
+      </div>
+
+      <!-- Footer Section -->
+      <footer class="text-center mt-8 text-gray-600">
+        © 2025 To Do List. by nugrahayuda.
+      </footer>
+    </div>
+
+    <!-- Javascript External -->
     <script src="/js/script.js"></script>
-</body>
+  </body>
 </html>
